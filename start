@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /home/sysadmin/pet
+cd ~/pet
 gunicorn -w 8 -b 127.0.0.1:8000 runner:app

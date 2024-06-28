@@ -7,7 +7,7 @@ class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(75), nullable=False)
     description = db.Column(db.String(150), nullable=True)
-    created_at = db.Column(db.DateTime, default=datetime.now(pytz.utc))
+    created_at = db.Column(db.DateTime, default=lambda: datetime.now(pytz.utc))
 
     def to_dict(self):
         return {

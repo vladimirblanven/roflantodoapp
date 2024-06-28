@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify, render_template
 from app.models import Todo
 from app.extensions import db
+from app.utils import get_first_available_id
 from pydantic import BaseModel, ValidationError, Field
 from datetime import datetime
 from typing import Optional
@@ -8,10 +9,8 @@ from typing import Optional
 main_bp = Blueprint('main', __name__)
 
 class TodoSchema(BaseModel):
-    id: Optional[int]
     title: str = Field(..., min_length=1, max_length=75)
     description: Optional[str] = Field(None, max_length=150)
-    created_at: Optional[str]
 
 @main_bp.route("/")
 def index():
@@ -27,9 +26,15 @@ def get_todos():
 def create_todo():
     try:
         todo_data = request.get_json()
+        validated_data = TodoSchema(**todo_data)  
+
+        if not validated_data.title:
+            return jsonify({"error": "Title is required"}), 400
+        
         todo = Todo(
-            title=todo_data.get('title'),
-            description=todo_data.get('description')
+            id=get_first_available_id(),  
+            title=validated_data.title,
+            description=validated_data.description
         )
         db.session.add(todo)
         db.session.commit()
@@ -50,7 +55,7 @@ def get_todo(todo_id: int):
 def delete_todo(todo_id: int):
     try:
         todo = Todo.query.get(todo_id)
-        if (todo):
+        if todo:
             db.session.delete(todo)
             db.session.commit()
             return jsonify(todo.to_dict())
