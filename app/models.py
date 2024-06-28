@@ -1,4 +1,4 @@
-from app.extensions import db
+from app.extensions import db, ma
 from datetime import datetime
 import pytz
 
@@ -9,10 +9,8 @@ class Todo(db.Model):
     description = db.Column(db.String(150), nullable=True)
     created_at = db.Column(db.DateTime, default=lambda: datetime.now(pytz.utc))
 
-    def to_dict(self):
-        return {
-            'id': self.id,
-            'title': self.title,
-            'description': self.description,
-            'created_at': self.created_at.isoformat()
-        }
+class TodoSchema(ma.SQLAlchemyAutoSchema):
+    class Meta:
+        model = Todo
+        include_fk = True
+        load_instance = True

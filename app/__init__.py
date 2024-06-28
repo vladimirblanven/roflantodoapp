@@ -1,12 +1,13 @@
 from flask import Flask, jsonify
 from app.views import main_bp
-from app.extensions import db
+from app.extensions import db, ma
 from pydantic import ValidationError
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object('config.Config')
     db.init_app(app)
+    ma.init_app(app)
     app.register_blueprint(main_bp)
 
     @app.errorhandler(ValidationError)
