@@ -11,7 +11,7 @@ A simple and efficient ToDo application built with Flask, SQLAlchemy, and Marshm
   - [Installation](#installation)
   - [Running the Application](#running-the-application)
 - [Project Structure](#project-structure)
-- [Key Files Description](key-files-description)
+- [Key Files Description](#key-files-description)
 - [API Endpoints](#api-endpoints)
 - [License](#license)
 
