@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "roflan-todo"
-version = "0.1.0"
+name = "roflantodoapp"
+version = "0.9.0"
 description = "A simple ToDo app using Flask"
 authors = ["Vladimir Blanven"]
 license = "MIT"

@@ -11,6 +11,7 @@ A simple and efficient ToDo application built with Flask, SQLAlchemy, and Marshm
   - [Installation](#installation)
   - [Running the Application](#running-the-application)
 - [Project Structure](#project-structure)
+- [Key Files Description](key-files-description)
 - [API Endpoints](#api-endpoints)
 - [License](#license)
 
@@ -35,7 +36,7 @@ A simple and efficient ToDo application built with Flask, SQLAlchemy, and Marshm
 
 ### Prerequisites
 
-- Python 3.7+
+- Python 3.11+
 - PostgreSQL (or any other preferred SQL database)
 
 ### Installation
@@ -102,7 +103,6 @@ roflantodoapp/
 │   ├── models.py
 │   ├── utils.py
 │   ├── views.py
-│   ├── error_handler.py
 │   ├── static/
 │   │   ├── styles.css
 │   │   ├── scripts.js
@@ -118,6 +118,44 @@ roflantodoapp/
 ├── README.md
 └── LICENSE.md
 ```
+
+## Key Files Description
+
+### `/roflantodoapp/app/__init__.py`
+This file initializes the Flask application, configures the app, and registers the main blueprint.
+
+### `/roflantodoapp/app/extensions.py`
+This file initializes and configures the extensions used in the application, such as SQLAlchemy for database interactions.
+
+### `/roflantodoapp/app/models.py`
+Defines the database models. In this project, it includes the `Todo` model representing a to-do item.
+
+### `/roflantodoapp/app/utils.py`
+Contains utility functions used in the application. For example, it includes a function to get the first available ID for a new to-do item.
+
+### `/roflantodoapp/app/views.py`
+Defines the routes and views for the application. It includes routes for creating, retrieving, and deleting to-do items.
+
+### `/roflantodoapp/app/static/styles.css`
+Contains the CSS styles for the application's frontend.
+
+### `/roflantodoapp/app/static/scripts.js`
+Includes JavaScript code for handling frontend interactions, such as submitting new to-do items and displaying the current date and time.
+
+### `/roflantodoapp/app/templates/index.html`
+The main HTML template for the application's frontend. It includes the structure and elements for displaying and managing to-do items.
+
+### `/roflantodoapp/config.py`
+Defines the configuration settings for the Flask application, including database URI and debug mode.
+
+### `/roflantodoapp/runner.py`
+The entry point for running the Flask application. It creates an app instance and runs the server.
+
+### `/roflantodoapp/pyproject.toml`
+Poetry configuration file for the Python project, including metadata and dependencies.
+
+### `/roflantodoapp/requirements.txt`
+Lists the Python packages required for the project.
 
 ## API Endpoints 
 
