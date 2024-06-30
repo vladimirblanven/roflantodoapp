@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from app.views import main_bp
 from app.extensions import db, ma
-from pydantic import ValidationError
+from marshmallow import ValidationError
 
 def create_app():
     app = Flask(__name__)
@@ -12,7 +12,7 @@ def create_app():
 
     @app.errorhandler(ValidationError)
     def handle_validation_error(error):
-        response = jsonify({"error": error.errors()})
+        response = jsonify({"error": error.messages})
         response.status_code = 400
         return response
 
