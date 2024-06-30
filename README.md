@@ -103,7 +103,7 @@ A simple and efficient ToDo application built with Flask, SQLAlchemy, and Marshm
     ```
     ```python
     from app import create_app, db
-    from app.models import TodoModel
+    from app.models import Todo, TodoSchema
     app = create_app()
     with app.app_context():
         db.create_all()
