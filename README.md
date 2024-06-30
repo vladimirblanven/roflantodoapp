@@ -30,7 +30,6 @@ A simple and efficient ToDo application built with Flask, SQLAlchemy, and Marshm
 - **SQLAlchemy**: SQL toolkit and Object-Relational Mapping (ORM) library.
 - **Marshmallow**: An ORM/ODM/framework-agnostic library for object serialization/deserialization and validation.
 - **HTML/CSS/JavaScript**: Frontend technologies for the user interface.
-- **Bootstrap**: A CSS framework for building responsive web designs.
 
 ## Getting Started
 
