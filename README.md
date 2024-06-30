@@ -84,7 +84,7 @@ A simple and efficient ToDo application built with Flask, SQLAlchemy, and Marshm
     CREATE USER myuser WITH ENCRYPTED PASSWORD 'SUp3rStr0ngP@ssw0rd';
     CREATE DATABASE mydb;
     GRANT ALL PRIVILEGES ON DATABASE todoapp to myuser;
-    ALTER DATABASE mydb OWNER TO db_admin;
+    ALTER DATABASE mydb OWNER TO myuser;
     GRANT ALL ON ALL TABLES IN SCHEMA public TO myuser;
     \q
     ```
