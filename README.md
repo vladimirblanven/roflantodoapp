@@ -140,7 +140,6 @@ roflantodoapp/
 ¦   ¦   L-- robots.txt
 ¦   L-- templates/
 ¦       L-- index.html
-+-- tests/
 +-- config.py
 +-- runner.py
 +-- pyproject.toml
