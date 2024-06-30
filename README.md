@@ -81,7 +81,7 @@ A simple and efficient ToDo application built with Flask, SQLAlchemy, and Marshm
     Create new user and database. Give the new user the necessary privileges over the new database and public schema:
    
     ```SQL
-    CREATE USER myuser WITH ENCRYPTED PASSWORD 'SUp3rtr0ngP@ssw0rd';
+    CREATE USER myuser WITH ENCRYPTED PASSWORD 'SUp3rStr0ngP@ssw0rd';
     CREATE DATABASE mydb;
     GRANT ALL PRIVILEGES ON DATABASE todoapp to myuser;
     ALTER DATABASE mydb OWNER TO db_admin;
