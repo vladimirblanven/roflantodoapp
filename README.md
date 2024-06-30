@@ -51,26 +51,57 @@ A simple and efficient ToDo application built with Flask, SQLAlchemy, and Marshm
 2. **Create and activate a virtual environment:**
 
     ```bash
-    python -m venv venv
+    python3 -m venv venv
     source venv/bin/activate  # On Windows use `venv\Scripts\activate`
     ```
 
 3. **Install the dependencies:**
 
     ```bash
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
     ```
 
-4. **Configure the database:**
+4. **Install and configure the SQL database:**
 
-    Create database and the user with privileges in preferred SQL database. Update the `DATABASE_URL` in `config.py` with your database credentials (PostgreSQL for e.g.):
+    Create database and the user with privileges in preferred SQL relational database management system (RDBMS). Set-up .env file with your flask and database credentials (PostgreSQL for e.g.):
 
-    ```python
-    SQLALCHEMY_DATABASE_URI = 'postgresql://username:password@localhost/databasename'
+    Install PostgreSQL on your system (Debian 12 for e.g.):
+
+    ```bash
+    su -
+    apt install postgresql
     ```
 
-5. **Initialize the database and create table:**
+    Open SQL Shell:
 
+    ```bash
+    su postgresql
+    psql
+    ```
+
+    Create new user and database. Give the new user the necessary privileges over the new database and public schema:
+   
+    ```SQL
+    CREATE USER myuser WITH ENCRYPTED PASSWORD 'SUp3rtr0ngP@ssw0rd';
+    CREATE DATABASE mydb;
+    GRANT ALL PRIVILEGES ON DATABASE todoapp to myuser;
+    ALTER DATABASE mydb OWNER TO db_admin;
+    GRANT ALL ON ALL TABLES IN SCHEMA public TO myuser;
+    \q
+    ```
+    
+    Configure .env file in roflantodoapp folder:
+    
+    ```env
+    DATABASE_URL=postgresql://myuser:SUp3rStr0ngP@ssw0rd@127.0.0.1/mydb
+    FLASK_RUN_HOST=127.0.0.1
+    FLASK_RUN_PORT=8000
+    ```
+
+6. **Create table 'todos' using python shell:**
+    ```bash
+    python3
+    ```
     ```python
     from app import create_app, db
     from app.models import TodoModel
@@ -84,7 +115,7 @@ A simple and efficient ToDo application built with Flask, SQLAlchemy, and Marshm
 1. **Start the Flask development server:**
 
     ```bash
-    python runner.py
+    python3 runner.py
     ```
 
 2. **Open your browser and navigate to:**
@@ -97,26 +128,26 @@ A simple and efficient ToDo application built with Flask, SQLAlchemy, and Marshm
 
 ```plaintext
 roflantodoapp/
-├── app/
-│   ├── __init__.py
-│   ├── extensions.py
-│   ├── models.py
-│   ├── utils.py
-│   ├── views.py
-│   ├── static/
-│   │   ├── styles.css
-│   │   ├── scripts.js
-│   │   ├── favicon.ico
-│   │   └── robots.txt
-│   └── templates/
-│       └── index.html
-├── tests/
-├── config.py
-├── runner.py
-├── pyproject.toml
-├── requirements.txt
-├── README.md
-└── LICENSE.md
++-- app/
+�   +-- __init__.py
+�   +-- extensions.py
+�   +-- models.py
+�   +-- utils.py
+�   +-- views.py
+�   +-- static/
+�   �   +-- styles.css
+�   �   +-- scripts.js
+�   �   +-- favicon.ico
+�   �   L-- robots.txt
+�   L-- templates/
+�       L-- index.html
++-- tests/
++-- config.py
++-- runner.py
++-- pyproject.toml
++-- requirements.txt
++-- README.md
+L-- LICENSE.md
 ```
 
 ## Key Files Description
