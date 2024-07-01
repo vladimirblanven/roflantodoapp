@@ -81,7 +81,7 @@ A simple and efficient ToDo application built with Flask, SQLAlchemy, and Marshm
     Create new user and database. Give the new user the necessary privileges over the new database and public schema:
    
     ```SQL
-    CREATE USER myuser WITH ENCRYPTED PASSWORD 'SUp3rStr0ngP@ssw0rd';
+    CREATE USER myuser WITH ENCRYPTED PASSWORD 'superpassword';
     CREATE DATABASE mydb;
     GRANT ALL PRIVILEGES ON DATABASE mydb to myuser;
     ALTER DATABASE mydb OWNER TO myuser;
@@ -92,7 +92,7 @@ A simple and efficient ToDo application built with Flask, SQLAlchemy, and Marshm
     Configure .env file in roflantodoapp folder:
     
     ```env
-    DATABASE_URL=postgresql://myuser:SUp3rStr0ngP@ssw0rd@127.0.0.1/mydb
+    DATABASE_URL=postgresql://myuser:superpassword@127.0.0.1/mydb
     FLASK_RUN_HOST=127.0.0.1
     FLASK_RUN_PORT=8000
     ```

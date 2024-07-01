@@ -15,7 +15,7 @@ body {
         #2b0202 0.25rem,
         #2b0202 0.5rem
     );
-    background-size: 100% 1rem; /* This line ensures that the pattern repeats evenly */
+    background-size: 100% 1rem;
     color: #e58c28;
     margin: 0;
     padding: 0;
