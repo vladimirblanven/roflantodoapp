@@ -128,18 +128,18 @@ A simple and efficient ToDo application built with Flask, SQLAlchemy, and Marshm
 ```plaintext
 roflantodoapp/
 +-- app/
-¦   +-- __init__.py
-¦   +-- extensions.py
-¦   +-- models.py
-¦   +-- utils.py
-¦   +-- views.py
-¦   +-- static/
-¦   ¦   +-- styles.css
-¦   ¦   +-- scripts.js
-¦   ¦   +-- favicon.ico
-¦   ¦   L-- robots.txt
-¦   L-- templates/
-¦       L-- index.html
+Â¦   +-- __init__.py
+Â¦   +-- extensions.py
+Â¦   +-- models.py
+Â¦   +-- utils.py
+Â¦   +-- views.py
+Â¦   +-- static/
+Â¦   Â¦   +-- styles.css
+Â¦   Â¦   +-- scripts.js
+Â¦   Â¦   +-- favicon.ico
+Â¦   Â¦   L-- robots.txt
+Â¦   L-- templates/
+Â¦       L-- index.html
 +-- config.py
 +-- runner.py
 +-- pyproject.toml
@@ -244,7 +244,7 @@ Lists the Python packages required for the project.
 
 ### Delete a ToDo
 - **URL:** `/todos/<int:todo_id>`
-- **Method:** DELETE
+- **Method:** `DELETE`
 - **Description:** Delete a specific todo by ID.
 - **Response:**
   ```json
